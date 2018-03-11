@@ -3,7 +3,7 @@
 #' @param ui_element A UI element that should be wrapped with a loader when the corresponding output is being calculated.
 #' @param type The type of loader to use - either image or html.
 #' @param size The size of the loader, relative to it's default size.
-#' @param loader The name of the loader. The built in options are dnaspin, dancingtree, pacman, walkingcow and tree.gif.
+#' @param loader The name of the loader. The built in options are dnaspin, dancingtree, pacman and walkingcow.
 #' For custom html option, the name of the css and html file have to be the same and input must be without the extension.
 #' For custom image option, the name must include the extension of the file.
 #' @param proxy.height If the output doesn't specify the output height, you can set a proxy height. It defaults to 400px for outputs with undefined height.

@@ -15,7 +15,7 @@ withLoader(ui_element, type = "html", size = 1, loader = "dnapsin",
 
 \item{size}{The size of the loader, relative to it's default size.}
 
-\item{loader}{The name of the loader. The built in options are dnaspin, dancingtree, pacman, walkingcow and tree.gif.
+\item{loader}{The name of the loader. The built in options are dnaspin, dancingtree, pacman and walkingcow.
 For custom html option, the name of the css and html file have to be the same and input must be without the extension.
 For custom image option, the name must include the extension of the file.}
 
