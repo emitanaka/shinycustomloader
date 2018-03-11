@@ -1,4 +1,4 @@
-#' Add a loader (loader) that shows when an output is recalculating
+#' Add a loader that shows when an output is recalculating
 #' @export
 #' @param ui_element A UI element that should be wrapped with a loader when the corresponding output is being calculated.
 #' @param type The type of loader to use - either image or html.
@@ -55,10 +55,10 @@ withLoader <- function (ui_element,
 #' Example Shiny App
 #'
 #' Shows an example shiny app with the built-in load screens.
-#'
+#' @export
 #' @examples
-#' showExample()
-showExample <- function() {
+#' \dontrun{showExample()}
+shinyExample <- function() {
   appDir <- system.file("example", package="shinycustomloader")
   shiny::runApp(appDir, display.mode="normal")
 }

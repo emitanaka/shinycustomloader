@@ -15,7 +15,7 @@ You can see an example shiny app that employs the custom loaders by launching an
 
 ```
 library(shinycustomloader)
-showExample()
+shinyExample()
 
 ```
 

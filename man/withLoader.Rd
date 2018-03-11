@@ -2,7 +2,7 @@
 % Please edit documentation in R/withloader.R
 \name{withLoader}
 \alias{withLoader}
-\title{Add a loader (loader) that shows when an output is recalculating}
+\title{Add a loader that shows when an output is recalculating}
 \usage{
 withLoader(ui_element, type = "html", size = 1, loader = "dnapsin",
   proxy.height = if (grepl("height:\\\\s*\\\\d", ui_element)) NULL else
@@ -22,7 +22,7 @@ For custom image option, the name must include the extension of the file.}
 \item{proxy.height}{If the output doesn't specify the output height, you can set a proxy height. It defaults to 400px for outputs with undefined height.}
 }
 \description{
-Add a loader (loader) that shows when an output is recalculating
+Add a loader that shows when an output is recalculating
 }
 \examples{
 \dontrun{withLoader(plotOutput("my_plot"))}
