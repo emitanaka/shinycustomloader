@@ -4,7 +4,7 @@
 \alias{withLoader}
 \title{Add a loader that shows when an output is recalculating}
 \usage{
-withLoader(ui_element, type = "html", size = 1, loader = "dnapsin",
+withLoader(ui_element, type = "html", size = 1, loader = "dnaspin",
   proxy.height = if (grepl("height:\\\\s*\\\\d", ui_element)) NULL else
   "400px")
 }
@@ -26,4 +26,15 @@ Add a loader that shows when an output is recalculating
 }
 \examples{
 \dontrun{withLoader(plotOutput("my_plot"))}
+}
+\references{
+`shinycssloaders` https://github.com/andrewsali/shinycssloaders
+
+`dnaspin` https://codepen.io/jsnanigans/pen/ORNJNp
+
+`pacman` https://codepen.io/wifi/pen/olKxE
+
+`dancingtree` https://codepen.io/yukulele/pen/KCvbi
+
+`walkingcow` https://codepen.io/jeremiak/pen/xGOVoe
 }

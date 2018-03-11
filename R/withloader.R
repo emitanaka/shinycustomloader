@@ -7,12 +7,22 @@
 #' For custom html option, the name of the css and html file have to be the same and input must be without the extension.
 #' For custom image option, the name must include the extension of the file.
 #' @param proxy.height If the output doesn't specify the output height, you can set a proxy height. It defaults to 400px for outputs with undefined height.
+#' @references
+#' `shinycssloaders` https://github.com/andrewsali/shinycssloaders
+#'
+#' `dnaspin` https://codepen.io/jsnanigans/pen/ORNJNp
+#'
+#' `pacman` https://codepen.io/wifi/pen/olKxE
+#'
+#' `dancingtree` https://codepen.io/yukulele/pen/KCvbi
+#'
+#' `walkingcow` https://codepen.io/jeremiak/pen/xGOVoe
 #' @examples
 #' \dontrun{withLoader(plotOutput("my_plot"))}
 withLoader <- function (ui_element,
                         type="html",
                         size=1,
-                        loader="dnapsin",
+                        loader="dnaspin",
                         proxy.height = if (grepl("height:\\s*\\d", ui_element)) NULL else "400px")
 {
   stopifnot(type %in% c("html", "image"))
