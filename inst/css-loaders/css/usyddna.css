@@ -1,0 +1,204 @@
+:root {
+  --bg-color: radial-gradient(circle at center, #fff, #ccc);
+  --dot-color1:#0148A4;
+  --dot-color2:#E64626;
+}
+
+body {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.dna {
+  width: 360px;
+  height: 70px;
+  margin-left: 120px;
+  perspective: 400px;
+  transform-style: preserve-3d;
+}
+.dna:after {
+  letter-spacing: 5px;
+  display: block;
+  padding-top: 100px;
+  color: black;
+  font-family: arial;
+  text-align: center;
+  content: 'loading...';
+}
+
+.ele {
+  width: 1px;
+  height: 70px;
+  float: left;
+  margin: 0 8px;
+  border-left: 1px #B0B0B0 dashed;
+  position: relative;
+  transform: rotateX(-360deg);
+  animation: run 2s linear infinite;
+}
+.ele:before, .ele:after {
+  content: '';
+  font-family: arial;
+  color:black;
+  width: 10px;
+  height: 10px;
+  background: var(--dot-color1);
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ele:before {
+  top: -2px;
+  background: var(--dot-color2);
+}
+.ele:after {
+  bottom: -2px;
+}
+.ele:nth-of-type(1):after, .ele:nth-of-type(1):before{
+  animation-delay: -0.15s;
+  content: 'U';
+}
+.ele:nth-of-type(2):after, .ele:nth-of-type(2):before {
+  animation-delay: -0.3s;
+  content: 'N';
+}
+.ele:nth-of-type(3):after, .ele:nth-of-type(3):before {
+  animation-delay: -0.45s;
+  content: 'I';
+}
+.ele:nth-of-type(4):after, .ele:nth-of-type(4):before {
+  animation-delay: -0.6s;
+  content: 'V';
+}
+.ele:nth-of-type(5):after, .ele:nth-of-type(5):before {
+  animation-delay: -0.75s;
+  content: 'E';
+}
+.ele:nth-of-type(6):after, .ele:nth-of-type(6):before {
+  animation-delay: -0.9s;
+  content: 'R';
+}
+.ele:nth-of-type(7):after, .ele:nth-of-type(7):before {
+  animation-delay: -1.05s;
+  content: 'S';
+}
+.ele:nth-of-type(8):after, .ele:nth-of-type(8):before {
+  animation-delay: -1.2s;
+  content: 'I';
+}
+.ele:nth-of-type(9):after, .ele:nth-of-type(9):before {
+  animation-delay: -1.35s;
+  content: 'T';
+}
+.ele:nth-of-type(10):after, .ele:nth-of-type(10):before {
+  animation-delay: -1.5s;
+  content: 'Y';
+}
+.ele:nth-of-type(11):after, .ele:nth-of-type(11):before {
+  animation-delay: -1.65s;
+}
+.ele:nth-of-type(12):after, .ele:nth-of-type(12):before {
+  animation-delay: -1.8s;
+  content: 'O';
+}
+.ele:nth-of-type(13):after, .ele:nth-of-type(13):before {
+  animation-delay: -1.95s;
+  content: 'F';
+}
+.ele:nth-of-type(14):after, .ele:nth-of-type(14):before {
+  animation-delay: -2.1s;
+}
+.ele:nth-of-type(15):after, .ele:nth-of-type(15):before {
+  animation-delay: -2.25s;
+  content: 'S';
+}
+.ele:nth-of-type(16):after, .ele:nth-of-type(16):before {
+  animation-delay: -2.4s;
+  content: 'Y';
+}
+.ele:nth-of-type(17):after, .ele:nth-of-type(17):before {
+  animation-delay: -2.55s;
+  content: 'D';
+}
+.ele:nth-of-type(18):after, .ele:nth-of-type(18):before {
+  animation-delay: -2.7s;
+  content: 'N';
+}
+.ele:nth-of-type(19):after, .ele:nth-of-type(19):before {
+  animation-delay: -2.85s;
+  content: 'E';
+}
+.ele:nth-of-type(20):after, .ele:nth-of-type(20):before {
+  animation-delay: -3s;
+  content: 'Y';
+}
+
+
+.ele:nth-of-type(1) {
+  animation-delay: -0.15s;
+}
+.ele:nth-of-type(2) {
+  animation-delay: -0.3s;
+}
+.ele:nth-of-type(3) {
+  animation-delay: -0.45s;
+}
+.ele:nth-of-type(4) {
+  animation-delay: -0.6s;
+}
+.ele:nth-of-type(5) {
+  animation-delay: -0.75s;
+}
+.ele:nth-of-type(6) {
+  animation-delay: -0.9s;
+}
+.ele:nth-of-type(7) {
+  animation-delay: -1.05s;
+}
+.ele:nth-of-type(8) {
+  animation-delay: -1.2s;
+}
+.ele:nth-of-type(9) {
+  animation-delay: -1.35s;
+}
+.ele:nth-of-type(10) {
+  animation-delay: -1.5s;
+}
+.ele:nth-of-type(11) {
+  animation-delay: -1.65s;
+}
+.ele:nth-of-type(12) {
+  animation-delay: -1.8s;
+}
+.ele:nth-of-type(13) {
+  animation-delay: -1.95s;
+}
+.ele:nth-of-type(14) {
+  animation-delay: -2.1s;
+}
+.ele:nth-of-type(15) {
+  animation-delay: -2.25s;
+}
+.ele:nth-of-type(16) {
+  animation-delay: -2.4s;
+}
+.ele:nth-of-type(17) {
+  animation-delay: -2.55s;
+}
+.ele:nth-of-type(18) {
+  animation-delay: -2.7s;
+}
+.ele:nth-of-type(19) {
+  animation-delay: -2.85s;
+}
+.ele:nth-of-type(20) {
+  animation-delay: -3s;
+}
+
+@keyframes run {
+  to {
+    transform: none;
+  }
+}

@@ -45,7 +45,7 @@ withLoader <- function (ui_element,
                               shiny::div(class = "load-container",shiny::img(class = "loader-img", src = loader)), proxy_element, ui_element))
   }
   else if (type=="html"){
-    if(loader %in% c("dnaspin", "dancingtree", "pacman", "walkingcow")) {
+    if(loader %in% c("dnaspin", "dancingtree", "pacman", "walkingcow", "usyddna")) {
       htmlfile <- system.file(package='shinycustomloader', paste0("css-loaders/html/", loader, ".html"))
     } else {
       htmlfile <- paste0(loader, ".html")

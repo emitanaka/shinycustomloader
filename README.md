@@ -19,7 +19,7 @@ shinyExample()
 
 ```
 
-The command is a simple wrapper for the shiny output and you can easily specify your own favorite gif for customisation.
+The command is a simple wrapper for the shiny output and you can easily specify your own favorite gif (say `tree.gif`) for customisation. Place `tree.gif` in the folder `www` within your shiny app folder (create one if you don't have it in your shiny folder).
 
 ```
 withLoader(plotOutput("distPlot"), type="image", loader="tree.gif")
