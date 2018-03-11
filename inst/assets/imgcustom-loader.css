@@ -1,0 +1,27 @@
+.shiny-loader-output-container {
+  position: relative;
+}
+
+.load-container {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  /* to avoid showing a vertical scrollbar
+  http://stackoverflow.com/questions/38251204/horizontal-animation-causes-vertical-scrollbar-in-css */
+  width: 100%;
+}
+.loader-img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+.shiny-loader-hidden {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+  visibility:hidden;
+}
