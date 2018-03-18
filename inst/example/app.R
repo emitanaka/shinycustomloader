@@ -11,21 +11,37 @@ library(shiny)
 library(shinydashboard)
 library(shinycustomloader)
 
+prismDependencies <- tags$head(
+  tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/prism.min.js"),
+  tags$link(rel = "stylesheet", type = "text/css",
+            href = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/themes/prism.min.css")
+)
+
+prismRDependency <- tags$head(
+  tags$script(src = "https://cdnjs.cloudflare.com/ajax/libs/prism/1.8.4/components/prism-r.min.js")
+)
+
+
 ui <- dashboardPage(
   dashboardHeader(title = "Shiny Custom Loaders"),
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Spinning DNA", tabName = "dnaspin", icon = icon("DNA")),
-      menuItem("Dancing Tree", tabName = "dancingtree", icon = icon("tree")),
-      menuItem("Pacman", tabName = "pacman", icon = icon("codiepie")),
-      menuItem("Walking Cow", tabName = "walkingcow", icon = icon("bell")),
-      menuItem("Growing Tree", tabName = "tree", icon = icon("tree-alt"))
+      menuItem("DEMO: Spinning DNA", tabName = "dnaspin"),
+      menuItem("DEMO: Pacman", tabName = "pacman"),
+      menuItem("Standard loaders", tabName = "standard"),
+      menuItem("Custom TEXT", tabName = "customtext"),
+      menuItem("Custom CSS/HTML", tabName = "customcss"),
+      menuItem("Custom GIF/IMAGE", tabName = "customgif")
     )
   ),
   dashboardBody(
     tabItems(
       tabItem(tabName = "dnaspin",
               h2("Spinning DNA"),
+              fluidRow(prismDependencies,
+                       prismRDependency,
+HTML("<pre><code class='language-r'>withLoader(plotOutput(\"distPlot\"), type=\"html\", loader=\"dnaspin\")
+                             </code></pre>")),
               fluidRow(
                 box(
                   title = "With Loader", status = "primary", solidHeader = TRUE,
@@ -35,31 +51,14 @@ ui <- dashboardPage(
                   title = "Without Loader", status = "warning", solidHeader = TRUE,
                   plotOutput("distPlot2")
                 )
-              ),
-              fluidRow(box(
-                title = "Code", status = "primary",
-                HTML("<code>withLoader(plotOutput(`distPlot`), type=`html`, loader=`dnaspin`)</code>")
-              ))
-      ),
-      tabItem(tabName = "dancingtree",
-              h2("Dancing Tree"),
-              fluidRow(
-                box(
-                  title = "With Loader", status = "primary", solidHeader = TRUE,
-                  withLoader(plotOutput("distPlot3"), type="html", loader="dancingtree")
-                ),
-                box(
-                  title = "Without Loader", status = "warning", solidHeader = TRUE,
-                  plotOutput("distPlot4")
-                )
-              ),
-              fluidRow(box(
-                title = "Code", status = "primary",
-                HTML("<code>withLoader(plotOutput(`distPlot`), type=`html`, loader=`dancingtree`)</code>")
-              ))
+              )
       ),
       tabItem(tabName = "pacman",
               h2("Pacman"),
+              fluidRow(prismDependencies,
+                       prismRDependency,
+                       HTML("<pre><code class='language-r'>withLoader(plotOutput(\"distPlot\"), type=\"html\", loader=\"pacman\")
+                            </code></pre>")),
               fluidRow(
                 box(
                   title = "With Loader", status = "primary", solidHeader = TRUE,
@@ -69,51 +68,78 @@ ui <- dashboardPage(
                   title = "Without Loader", status = "warning", solidHeader = TRUE,
                   plotOutput("distPlot6")
                 )
-              ),
-              fluidRow(box(
-                title = "Code", status = "primary",
-                HTML("<code>withLoader(plotOutput(`distPlot`), type=`html`, loader=`pacman`)</code>")
-              ))
+              )
       ),
-      tabItem(tabName = "walkingcow",
-              h2("Walking Cow"),
-              fluidRow(
-                box(
-                  title = "With Loader", status = "primary", solidHeader = TRUE,
-                  withLoader(plotOutput("distPlot7"), type="html", loader="walkingcow")
-                ),
-                box(
-                  title = "Without Loader", status = "warning", solidHeader = TRUE,
-                  plotOutput("distPlot8")
+tabItem(tabName = "standard",
+        h2("Standard Loaders"),
+        fluidRow(prismDependencies,
+                 prismRDependency,
+                 HTML("<pre><code class='language-r'>withLoader(plotOutput(\"distPlot\"), type=\"html\", loader=\"loader1\")
+                      </code></pre>")),
+        fluidRow(
+          shiny::div(style="transform: translateY(150px)", renderCSS("html", "loaders"))
+        )
+                 ),
+tabItem(tabName = "customtext",
+                h2("Custom Text"),
+                fluidRow(prismDependencies,
+                         prismRDependency,
+                         HTML("<pre><code class='language-r'>withLoader(plotOutput(\"distPlot\"), type=\"text\",
+            loader=list(marquee(\"Your custom text here\"),
+                        marquee(\"You can change the speed\", scrollamount=20),
+                        marquee(\"Direction can be customised too!\", direction=\"right\")
+                        marquee(\"Style it as you want\", style=\"font-size:40px; color:blue\"),
+                        marquee(\"Up, up and away\", direction=\"up\", style=\"font-size:20px; color:green\", height=\"100px\"),
+                        marquee(\"Bouncy bounce\", behavior=\"alternate\", scrollamount=15)))
+                              </code></pre>")),
+                fluidRow(
+                  column(3),
+                  box(
+                    title = "With custom text", status = "primary", solidHeader = TRUE,
+                    shiny::div(style="width:100%; height:400px; text-align:center; top: 20%; transform: translateY(20%);", renderCSS(type="text", loader=list(marquee("Your custom text here"),
+                                                       marquee("You can change the speed", scrollamount=20),
+                                                       marquee("Direction can be customised too", direction="right"),
+                                                       marquee("Style it as you want", style="font-size:40px; color:blue"),
+                                                       marquee("Up, up and away", direction="up", style="font-size:20px; color:green", height="100px"),
+                                                       marquee("Bouncy bounce", behavior="alternate", scrollamount=15))))
+                  )
                 )
-              ),
-              fluidRow(box(
-                title = "Code", status = "primary",
-                HTML("<code>withLoader(plotOutput(`distPlot`), type=`html`, loader=`walkingcow`)</code>")
-              ))
       ),
-      tabItem(tabName = "tree",
-              h2("Tree"),
-              fluidRow(
-                box(
-                  title = "With Loader", status = "primary", solidHeader = TRUE,
-                  withLoader(plotOutput("distPlot9"), type="image", loader="tree.gif")
-                ),
-                box(
-                  title = "Without Loader", status = "warning", solidHeader = TRUE,
-                  plotOutput("distPlot10")
-                )
-              ),
-              fluidRow(box(
-                title = "Code", status = "primary",
-                HTML("Use your own gif or image by setting type=\"image\" and specify your own gif or image including the extension of the file.\n"),
-                HTML("<code>withLoader(plotOutput(`distPlot`), type=`image`, loader=`tree.gif`)</code>")
-              ))
-      )
-    )
-  )
-
+tabItem(tabName = "customcss",
+        h2("Custom CSS/HTML"),
+        fluidRow(prismDependencies,
+                 prismRDependency,
+                 HTML("<pre><code class='language-r'>withLoader(plotOutput(\"distPlot\"), type=\"html\", loader=\"usyddna\")
+                      </code></pre>")),
+        HTML("<b>How to set up</b>"), HTML("<p>Place your <code>css</code> and <code>html</code> file in the <code>www</code> folder of your shiny folder making sure they are the same name.</p>"),
+        HTML("You can download the example <a href=\"usyddna.css\" download>usyddna.css</a> and <a href=\"usyddna.html\" download>usyddna.html</a>."),
+        HTML("For more examples you can find it <a href=\"https://codepen.io/\" target=\"_blank\">here</a>."),
+        h5(),
+        fluidRow(
+          column(3),
+          box(
+            title = "With custom css/html", status = "primary", solidHeader = TRUE,
+            shiny::div(style="width:100%; height:400px; text-align:center; top: 40%; transform: translateY(40%);", renderCSS(type="html", loader="usyddna"))
+          )
+        )
+                      ),
+tabItem(tabName = "customgif",
+        h2("Custom GIF/IMAGE"),
+        fluidRow(prismDependencies,
+                 prismRDependency,
+                 HTML("<pre><code class='language-r'>withLoader(plotOutput(\"distPlot\"), type=\"image\", loader=\"nyancat.gif\")
+                      </code></pre>")),
+        HTML("<b>How to set up</b>"), HTML("<p>Place your <code>gif</code> or <code>image</code> file in the <code>www</code> folder of your shiny folder.</p>"),
+        fluidRow(
+          column(3),
+          box(
+            title = "With custom gif/image", status = "primary", solidHeader = TRUE,
+            shiny::img(class = "loader-img", src = "nyancat.gif", style="top: 50%; transform: translateY(50%);"), height="400px"
+          )
+        )
 )
+      )))
+
 
 getHist <- function(){
   x    <- faithful[, 2]
@@ -121,6 +147,7 @@ getHist <- function(){
   Sys.sleep(3)
   hist(x, breaks = bins, col = 'darkgray', border = 'white')
 }
+
 
 server <- function(input, output) {
 
@@ -134,7 +161,6 @@ server <- function(input, output) {
   output$distPlot8 <- renderPlot(getHist())
   output$distPlot9 <- renderPlot(getHist())
   output$distPlot10 <- renderPlot(getHist())
-
 }
 
 # Run the application

@@ -1,0 +1,22 @@
+/* =Elements style
+---------------------- */
+
+.square {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background-color: #4b9cdb;
+}
+
+
+/* =Animate the stuff
+------------------------ */
+.load-7 .square {animation: loading7 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
+
+
+@keyframes loading7 {
+    0% {transform: translate(-35px,0) rotate(0deg);}
+    50% {transform: translate(35px,0) rotate(360deg);}
+    100% {transform: translate(-35px,0) rotate(0deg);}
+}

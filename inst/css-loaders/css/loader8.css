@@ -1,0 +1,21 @@
+/* =Elements style
+---------------------- */
+
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #4b9cdb;
+}
+
+
+/* =Animate the stuff
+------------------------ */
+.load-8 .line {animation: loading8 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
+
+@keyframes loading8 {
+    0% {width: 15px;}
+    50% {width: 35px; padding: 4px;}
+    100% {width: 15px;}
+}

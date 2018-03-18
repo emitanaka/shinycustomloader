@@ -4,20 +4,19 @@
 \alias{withLoader}
 \title{Add a loader that shows when an output is recalculating}
 \usage{
-withLoader(ui_element, type = "html", size = 1, loader = "dnaspin",
+withLoader(ui_element, type = "html", loader = "dnaspin",
   proxy.height = if (grepl("height:\\\\s*\\\\d", ui_element)) NULL else
   "400px")
 }
 \arguments{
 \item{ui_element}{A UI element that should be wrapped with a loader when the corresponding output is being calculated.}
 
-\item{type}{The type of loader to use - either image or html.}
-
-\item{size}{The size of the loader, relative to it's default size.}
+\item{type}{The type of loader to use. Possible values are image, html or text.}
 
 \item{loader}{The name of the loader. The built in options are dnaspin, dancingtree, pacman and walkingcow.
 For custom html option, the name of the css and html file have to be the same and input must be without the extension.
-For custom image option, the name must include the extension of the file.}
+For custom image option, the name must include the extension of the file.
+For custom text option, loader must be a list of marquee objects.}
 
 \item{proxy.height}{If the output doesn't specify the output height, you can set a proxy height. It defaults to 400px for outputs with undefined height.}
 }
@@ -26,6 +25,8 @@ Add a loader that shows when an output is recalculating
 }
 \examples{
 \dontrun{withLoader(plotOutput("my_plot"))}
+marquee_list <- list(marquee("Your custom text here"), marquee("You can change the speed", scrollamount=20), marquee("Direction can be customised too!", direction="right"))
+\dontrun{withLoader(plotOutput("distPlot"), type="text", loader=marquee_list)}
 }
 \references{
 `shinycssloaders` https://github.com/andrewsali/shinycssloaders
@@ -34,7 +35,5 @@ Add a loader that shows when an output is recalculating
 
 `pacman` https://codepen.io/wifi/pen/olKxE
 
-`dancingtree` https://codepen.io/yukulele/pen/KCvbi
-
-`walkingcow` https://codepen.io/jeremiak/pen/xGOVoe
+`loaders` https://codepen.io/Manoz/pen/pydxK
 }

@@ -1,0 +1,43 @@
+/* =Elements style
+---------------------- */
+
+
+.ring-2 {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto;
+    border: 4px solid #4b9cdb;
+    border-radius: 100%;
+}
+
+.ball-holder {
+    position: absolute;
+    width: 12px;
+    height: 45px;
+    left: 17px;
+    top: 0px;
+}
+
+.ball {
+    position: absolute;
+    top: -11px;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #4282B3;
+}
+
+
+/* =Animate the stuff
+------------------------ */
+
+.load-5 .ball-holder {animation: loading5 1.3s linear infinite;}
+
+
+@keyframes loading5 {
+    0 {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+

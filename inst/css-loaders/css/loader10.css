@@ -1,0 +1,25 @@
+/* =Elements style
+---------------------- */
+
+.bar {
+    display: inline-block;
+    width: 15px;
+    height: 6px;
+    border-radius: 2px;
+    background-color: #4b9cdb;
+}
+
+/* =Animate the stuff
+------------------------ */
+.load-10 .bar {animation: loading10 2s cubic-bezier(.17,.37,.43,.67) infinite;}
+
+
+@keyframes loading10 {
+  0%,100% {transform: translate(-40px,0);}
+
+  50% {
+      transform: translate(40px,0);
+      background-color: #f5634a;
+      width: 25px;
+  }
+}

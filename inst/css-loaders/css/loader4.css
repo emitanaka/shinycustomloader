@@ -1,0 +1,23 @@
+/* =Elements style
+---------------------- */
+
+.ring-1 {
+    width: 15px;
+    height: 15px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 7px dashed #4b9cdb;
+    border-radius: 100%;
+}
+
+
+/* =Animate the stuff
+------------------------ */
+.load-4 .ring-1 {animation: loading4 1.5s .3s cubic-bezier(.17,.37,.43,.67) infinite;}
+
+
+@keyframes loading4 {
+    0 {transform: rotate(0deg);}
+    50% {transform: rotate(180deg);}
+    100% {transform: rotate(360deg);}
+}

@@ -1,0 +1,25 @@
+/* =Elements style
+---------------------- */
+
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #4b9cdb;
+}
+
+
+/* =Animate the stuff
+------------------------ */
+.load-3 .line:nth-last-child(1) {animation: loading3 .6s .1s linear infinite;}
+.load-3 .line:nth-last-child(2) {animation: loading3 .6s .2s linear infinite;}
+.load-3 .line:nth-last-child(3) {animation: loading3 .6s .3s linear infinite;}
+
+
+@keyframes loading3 {
+    0 {transform: translate(0,0);}
+    50% {transform: translate(0,15px);}
+    100% {transform: translate(0,0);}
+}
+

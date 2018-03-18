@@ -1,16 +1,7 @@
-P{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
-}
-
 .pacman{
-  margin:40px 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
 }
 
 .pacman-top{
@@ -29,6 +20,16 @@ background-color:yellow;
   animation: spin2 0.5s infinite linear;
 }
 
+.feed:after {
+  letter-spacing: 5px;
+  display: inline-block;
+  padding-top: 100px;
+  color: black;
+  font-family: arial;
+  text-align: center;
+  content: 'loading...';
+}
+
 .feed {
 margin-top: -95px;
 margin-left:15px;
@@ -38,101 +39,84 @@ border-radius: 100%;
 -moz-animation: eat 0.5s linear 0s infinite;
 -webkit-animation: eat 0.5s linear 0s infinite;
 animation: eat 0.5s linear 0s infinite;
-}   
+}
 
 /* Animation*/
 
 @keyframes spin1 {
-	0%  {transform: rotate(0deg);}
-	50%{transform: rotate(-35deg);}
-  
+	0%  {transform: translate(-50px,0) rotate(0deg);}
+	50%{transform: translate(-50px,0) rotate(-35deg);}
+  100%{transform: translate(-50px,0) rotate(0deg);}
 }
 @keyframes spin2 {
-	0%  {transform: rotate(0deg);}
-  50%{transform: rotate(35deg);}	
+	0%  {transform: translate(-50px,0) rotate(0deg);}
+  50%{transform: translate(-50px,0) rotate(35deg);}
+  100%{transform: translate(-50px,0) rotate(0deg);}
 }
 
 @-moz-keyframes spin1 {
-	0%  {transform: rotate(0deg);}
-	50%{transform: rotate(-35deg);}
-  
+	0%  {transform: translate(-50px,0) rotate(0deg);}
+	50%{transform: translate(-50px,0) rotate(-35deg);}
+	100%{transform: translate(-50px,0) rotate(0deg);}
+
 }
 @-moz-keyframes spin2 {
-	0%  {transform: rotate(0deg);}
-  50%{transform: rotate(35deg);}	
+	0%  {transform: translate(-50px,0) rotate(0deg);}
+  50%{transform: translate(-50px,0) rotate(35deg);}
+  100%{transform: translate(-50px,0) rotate(0deg);}
 }
 
 @-webkit-keyframes spin1 {
-	0%  {transform: rotate(0deg);}
-	50%{transform: rotate(-35deg);}
-  
+	0%  {transform: translate(-50px,0) rotate(0deg);}
+	50%{transform: translate(-50px,0) rotate(-35deg);}
+	100%{transform: translate(-50px,0) rotate(0deg);}
+
 }
 @-webkit-keyframes spin2 {
-	0%  {transform: rotate(0deg);}
-  50%{transform: rotate(35deg);}	
+	0%  {transform: translate(-50px,0) rotate(0deg);}
+  50%{transform: translate(-50px,0) rotate(35deg);}
+  100%{transform: translate(-50px,0) rotate(0deg);}
 }
 
 @keyframes eat {
-	0% { box-shadow: 
-      50px 65px 0 0 blue, 
-      100px 65px 0 0 blue, 
-      150px 65px 0 0 blue, 
-      200px 65px 0 0 blue,
-      250px 65px 0 0 blue, 
-      300px 65px 0 0 blue, 
-      350px 65px 0 0 blue;}
-  
-100% { box-shadow: 
-      0px 65px 0 0 blue, 
+	0% { box-shadow:
+      0px 65px 0 0 blue,
       50px 65px 0 0 blue,
-      100px 65px 0 0 blue, 
-      150px 65px 0 0 blue, 
-      200px 65px 0 0 blue, 
-      250px 65px 0 0 blue, 
-      300px 65px 0 0 blue;}
-}
-}
+      100px 65px 0 0 blue;
+	}
 
+100% { box-shadow:
+      -50px 65px 0 0 blue,
+      0px 65px 0 0 blue,
+      50px 65px 0 0 blue;
+}
+}
 
 @-moz-keyframes eat {
-	0% { box-shadow: 
-      50px 65px 0 0 blue, 
-      100px 65px 0 0 blue, 
-      150px 65px 0 0 blue, 
-      200px 65px 0 0 blue,
-      250px 65px 0 0 blue, 
-      300px 65px 0 0 blue, 
-      350px 65px 0 0 blue;}
-  
-100% { box-shadow: 
-      0px 65px 0 0 blue, 
+	0% { box-shadow:
+      0px 65px 0 0 blue,
       50px 65px 0 0 blue,
-      100px 65px 0 0 blue, 
-      150px 65px 0 0 blue, 
-      200px 65px 0 0 blue, 
-      250px 65px 0 0 blue, 
-      300px 65px 0 0 blue;}
+      100px 65px 0 0 blue;
+	}
+
+100% { box-shadow:
+      -50px 65px 0 0 blue,
+      0px 65px 0 0 blue,
+      50px 65px 0 0 blue;
 }
 }
 
 
 @-webkit-keyframes eat {
-	0% { box-shadow: 
-      50px 65px 0 0 blue, 
-      100px 65px 0 0 blue, 
-      150px 65px 0 0 blue, 
-      200px 65px 0 0 blue,
-      250px 65px 0 0 blue, 
-      300px 65px 0 0 blue, 
-      350px 65px 0 0 blue;}
-  
-100% { box-shadow: 
-      0px 65px 0 0 blue, 
-      50px 65px 0 0 blue,
-      100px 65px 0 0 blue, 
-      150px 65px 0 0 blue, 
-      200px 65px 0 0 blue, 
-      250px 65px 0 0 blue, 
-      300px 65px 0 0 blue;}
+	0% { box-shadow:
+      15px 65px 0 0 blue,
+      65px 65px 0 0 blue,
+      115px 65px 0 0 blue;
+	}
+
+100% { box-shadow:
+      -35px 65px 0 0 blue,
+      15px 65px 0 0 blue,
+      65px 65px 0 0 blue;
 }
 }

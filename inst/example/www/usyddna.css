@@ -4,16 +4,9 @@
   --dot-color2:#E64626;
 }
 
-body {
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .dna {
-  width: 360px;
+  width: 100%;
   height: 70px;
-  margin-left: 120px;
   perspective: 400px;
   transform-style: preserve-3d;
 }
