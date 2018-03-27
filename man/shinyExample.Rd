@@ -10,5 +10,5 @@ shinyExample()
 Shows an example shiny app with the built-in load screens.
 }
 \examples{
-\dontrun{showExample()}
+\dontrun{shinyExample()}
 }

@@ -1,12 +1,13 @@
 Package: shinycustomloader
 Type: Package
 Title: Custom Loader for Shiny Outputs
-Version: 0.1.0
+Version: 0.9.0
 Author: Emi Tanaka and Niichan
 Maintainer: Emi Tanaka <emi.tanaka@sydney.edu.au>
-Description: This package is an extension of the shinycssloader package which allows for custom css/html or gif/image file for the loading screen.
+Description: A custom css/html or gif/image file for the loading screen in R 'shiny'. It also can use the marquee to have custom text loading screen. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: glue, shiny
+Suggests: shinycssloaders
 RoxygenNote: 6.0.1

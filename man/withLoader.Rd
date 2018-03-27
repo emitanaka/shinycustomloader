@@ -25,7 +25,7 @@ Add a loader that shows when an output is recalculating
 }
 \examples{
 \dontrun{withLoader(plotOutput("my_plot"))}
-marquee_list <- list(marquee("Your custom text here"), marquee("You can change the speed", scrollamount=20), marquee("Direction can be customised too!", direction="right"))
+\dontrun{marquee_list <- list(marquee("Your custom text here"))}
 \dontrun{withLoader(plotOutput("distPlot"), type="text", loader=marquee_list)}
 }
 \references{

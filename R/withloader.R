@@ -18,7 +18,7 @@
 #'
 #' @examples
 #' \dontrun{withLoader(plotOutput("my_plot"))}
-#' marquee_list <- list(marquee("Your custom text here"), marquee("You can change the speed", scrollamount=20), marquee("Direction can be customised too!", direction="right"))
+#' \dontrun{marquee_list <- list(marquee("Your custom text here"))}
 #' \dontrun{withLoader(plotOutput("distPlot"), type="text", loader=marquee_list)}
 withLoader <- function(ui_element,
                         type="html",
@@ -56,7 +56,7 @@ withLoader <- function(ui_element,
                      shiny::singleton(shiny::tags$head(shiny::tags$link(rel = "stylesheet",
                                                                         href = paste0("css-loaders/css/", loader, ".css")))),
                      shiny::div(class = "shiny-loader-output-container",
-                                shiny::div(class = "load-container", includeHTML(htmlfile)),
+                                shiny::div(class = "load-container", shiny::includeHTML(htmlfile)),
                                 proxy_element, ui_element))
     } else {
       htmlfile <- paste0("", loader, ".html")
@@ -68,7 +68,7 @@ withLoader <- function(ui_element,
                      shiny::singleton(shiny::tags$head(shiny::tags$link(rel = "stylesheet",
                                                                         href = paste0(loader, ".css")))),
                      shiny::div(class = "shiny-loader-output-container",
-                                shiny::div(class = "load-container", includeHTML(htmlfile)),
+                                shiny::div(class = "load-container", shiny::includeHTML(htmlfile)),
                                 proxy_element, ui_element))
     }
   } else if(type=="text") {
@@ -91,19 +91,22 @@ withLoader <- function(ui_element,
                    shiny::singleton(shiny::tags$head(shiny::tags$link(rel = "stylesheet",
                                                                       href = "css-loaders/css/imgcustom-fallback.css"))),
                    shiny::div(class = "shiny-loader-output-container",
-                              shiny::div(class = "load-container", style="text-align:center; width:100%", HTML(textout)),
+                              shiny::div(class = "load-container", style="text-align:center; width:100%", shiny::HTML(textout)),
                               proxy_element, ui_element))
   }
 }
 
-#' Example Shiny App
+#' Render a permanent loading screen.
 #'
-#' Shows an example shiny app with the built-in load screens.
+#' This function follows similar to withLoader but needs no UI element. This allows for a permanent loading screen.
 #' @export
 #' @param type The type of loader to use. Possible values are image, html or text.
 #' @param loader The name of the loader. The built in options are dnaspin, dancingtree, pacman and walkingcow.
 #' For custom html option, the name of the css and html file have to be the same and input must be without the extension.
 #' For custom text option, loader must be a list of marquee objects.
+#' @examples
+#' \dontrun{marquee_list <- list(marquee("Your custom text here"))}
+#' \dontrun{renderCSS(type="text", loader=marquee_list)}
 renderCSS <- function(type, loader) {
   proxy_element <- shiny::tagList()
   if (type=="html"){
@@ -115,7 +118,7 @@ renderCSS <- function(type, loader) {
                      shiny::singleton(shiny::tags$head(shiny::tags$link(rel = "stylesheet",
                                                                         href = paste0("css-loaders/css/", loader, ".css")))),
                      shiny::div(class = "shiny-loader-output-container",
-                                shiny::div(class = "load-container", includeHTML(htmlfile))))
+                                shiny::div(class = "load-container", shiny::includeHTML(htmlfile))))
     } else {
       htmlfile <- paste0("www/", loader, ".html")
       shiny::tagList(shiny::singleton(shiny::tags$head(shiny::tags$link(rel = "stylesheet",
@@ -123,7 +126,7 @@ renderCSS <- function(type, loader) {
                      shiny::singleton(shiny::tags$head(shiny::tags$link(rel = "stylesheet",
                                                                         href = paste0(loader, ".css")))),
                      shiny::div(class = "shiny-loader-output-container",
-                                shiny::div(class = "load-container", includeHTML(htmlfile))))
+                                shiny::div(class = "load-container", shiny::includeHTML(htmlfile))))
     }
   } else if(type=="text") {
     if(!is.list(loader)) {
@@ -139,23 +142,22 @@ renderCSS <- function(type, loader) {
         textout <- paste0(textout, ">", amarquee[names(amarquee)=="content"], "</marquee>\n ")
       }
     }
-    shiny::tagList(HTML(textout), proxy_element)
+    shiny::tagList(shiny::HTML(textout), proxy_element)
   }
 }
 
 
-#' Example Shiny App
+#' Create a marquee list.
 #'
-#' Shows an example shiny app with the built-in load screens.
+#' This creates the necessary elements for marquee to make custom text loading screen.
+#' This function is to be used as input list in withLoader or renderCSS functions.
 #' @export
 #' @param content The text content of the marquee.
 #' @param behavior Sets how the text is scrolled within the marquee. Possible values are scroll, slide and alternate. If no value is specified, the default value is scroll.
 #' @param direction Sets the direction of the scrolling within the marquee. Possible values are left, right, up and down. If no value is specified, the default value is left.
 #' @param scrollamount Sets the amount of scrolling at each interval in pixels. The default value is 6.
-#' @param height Sets the height in pixels or percentage value.
 #' @param width Sets the width in pixels or percentage value.
-#' @param bgcolor Sets the background color through color name or hexadecimal value.
-#' @param ... Other parameters passed to the marquee.
+#' @param ... Other parameters passed to the marquee such as height, bgcolor.
 #' @examples
 #' marquee("Custom loading text here...", height=60, width=100)
 marquee <- function(content, behavior="scroll", direction="left", scrollamount=6, width="100%",
@@ -170,7 +172,7 @@ marquee <- function(content, behavior="scroll", direction="left", scrollamount=6
 #' Shows an example shiny app with the built-in load screens.
 #' @export
 #' @examples
-#' \dontrun{showExample()}
+#' \dontrun{shinyExample()}
 shinyExample <- function() {
   appDir <- system.file("example", package="shinycustomloader")
   shiny::runApp(appDir, display.mode="normal")

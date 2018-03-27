@@ -2,17 +2,21 @@
 % Please edit documentation in R/withloader.R
 \name{renderCSS}
 \alias{renderCSS}
-\title{Example Shiny App}
+\title{Render a permanent loading screen.}
 \usage{
-renderCSS(css, html, builtin = TRUE)
+renderCSS(type, loader)
 }
 \arguments{
-\item{css}{the name of the css file}
+\item{type}{The type of loader to use. Possible values are image, html or text.}
 
-\item{html}{the name of the html file}
-
-\item{builtin}{use the built-in css and html files. Default is TRUE.}
+\item{loader}{The name of the loader. The built in options are dnaspin, dancingtree, pacman and walkingcow.
+For custom html option, the name of the css and html file have to be the same and input must be without the extension.
+For custom text option, loader must be a list of marquee objects.}
 }
 \description{
-Shows an example shiny app with the built-in load screens.
+This function follows similar to withLoader but needs no UI element. This allows for a permanent loading screen.
+}
+\examples{
+\dontrun{marquee_list <- list(marquee("Your custom text here"))}
+\dontrun{renderCSS(type="text", loader=marquee_list)}
 }

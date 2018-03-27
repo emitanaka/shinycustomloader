@@ -2,7 +2,7 @@
 % Please edit documentation in R/withloader.R
 \name{marquee}
 \alias{marquee}
-\title{Example Shiny App}
+\title{Create a marquee list.}
 \usage{
 marquee(content, behavior = "scroll", direction = "left",
   scrollamount = 6, width = "100\%", ...)
@@ -18,14 +18,11 @@ marquee(content, behavior = "scroll", direction = "left",
 
 \item{width}{Sets the width in pixels or percentage value.}
 
-\item{...}{Other parameters passed to the marquee.}
-
-\item{height}{Sets the height in pixels or percentage value.}
-
-\item{bgcolor}{Sets the background color through color name or hexadecimal value.}
+\item{...}{Other parameters passed to the marquee such as height, bgcolor.}
 }
 \description{
-Shows an example shiny app with the built-in load screens.
+This creates the necessary elements for marquee to make custom text loading screen.
+This function is to be used as input list in withLoader or renderCSS functions.
 }
 \examples{
 marquee("Custom loading text here...", height=60, width=100)
