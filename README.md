@@ -1,6 +1,6 @@
 # shinycustomloader
 
-[CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/shinycustomloader)](https://cran.r-project.org/package=shinycustomloader)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/shinycustomloader)](https://cran.r-project.org/package=shinycustomloader)
 
 This R-package is an extension to the shinycssloaders package and allows for custom css/html or gif/image file for the loading screen. You may include your css/html files or gif/image files for your custom loading screen. There are twelve built in css/html loading screen specified by `dnaspin`, `pacman`, `loader1`, `loader2`,  ...,  `loader10`.
 
