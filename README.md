@@ -1,4 +1,4 @@
-shinycustomloader <img src="https://user-images.githubusercontent.com/7620319/38168546-bb7cd360-3592-11e8-8eca-a81456a91c11.png" height="200" width="200" align="right" />
+shinycustomloader <img src="https://user-images.githubusercontent.com/7620319/38168572-71e4543e-3593-11e8-9487-9c6c484b896a.png" height="200" width="200" align="right" />
 ========================================================
 
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/shinycustomloader)](https://cran.r-project.org/package=shinycustomloader)
