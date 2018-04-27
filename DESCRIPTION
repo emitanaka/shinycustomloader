@@ -2,7 +2,8 @@ Package: shinycustomloader
 Type: Package
 Title: Custom Loader for Shiny Outputs
 Version: 0.9.0
-Author: Emi Tanaka and Niichan
+Authors@R: c(person("Emi", "Tanaka", email = "emi.tanaka@sydney.edu.au",
+                  role = c("aut", "cre")), person("Nii-chan", "", email = "", role = "ctb"))
 Maintainer: Emi Tanaka <emi.tanaka@sydney.edu.au>
 Description: A custom css/html or gif/image file for the loading screen in R 'shiny'. It also can use the marquee to have custom text loading screen. 
 License: GPL-3
