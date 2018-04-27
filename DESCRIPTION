@@ -12,3 +12,4 @@ LazyData: true
 Imports: glue, shiny
 Suggests: shinycssloaders
 RoxygenNote: 6.0.1
+BugReports: https://github.com/emitanaka/shinycustomloader/issues
